@@ -37,7 +37,7 @@ public class SecurityConfig {
         return http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**").permitAll() // public login/register
+                .requestMatchers("/api/v1/auth/**", "/api/v1/audio/all").permitAll() // public login/register
                 .anyRequest().authenticated()                  // everything else = secured
                 .and()
                 .sessionManagement()
