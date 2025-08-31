@@ -26,6 +26,14 @@ public class AuthService {
     private JwtUtil jwtUtil;
 
     public AuthResponse register(RegisterRequest request) {
+        // Check if user already exists by email or username
+        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+            throw new RuntimeException("Email is already in use");
+        }
+
+        if (userRepository.findByUsername(request.getUsername()).isPresent()) {
+            throw new RuntimeException("Username is already taken");
+        }
         User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
