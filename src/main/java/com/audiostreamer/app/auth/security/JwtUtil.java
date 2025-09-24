@@ -1,9 +1,8 @@
-package com.audiostreamer.app.security;
+package com.audiostreamer.app.auth.security;
 
-import com.audiostreamer.app.models.User;
+import com.audiostreamer.app.auth.model.User;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -13,14 +12,13 @@ import java.util.Date;
 public class JwtUtil {
 
     private static final long EXPIRATION_TIME = 1000 * 60 * 60; // 1 hour
-
-    @Value("${jwt.secret}")
-    private String secret;
+    private static final String SECRET = System.getenv("JWT_SECRET"); // must be 256-bit min
 
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(secret.getBytes());
+        return Keys.hmacShaKeyFor(SECRET.getBytes());
     }
 
+    // Generate token
     public String generateToken(User user) {
         return Jwts.builder()
                 .setSubject(user.getEmail())
@@ -32,9 +30,10 @@ public class JwtUtil {
                 .compact();
     }
 
+    // Validate token
     public boolean isTokenValid(String token) {
         try {
-            Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token);
+            getClaims(token);
             return true;
         } catch (JwtException e) {
             return false;

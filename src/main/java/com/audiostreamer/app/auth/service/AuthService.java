@@ -1,10 +1,12 @@
-package com.audiostreamer.app.services;
+package com.audiostreamer.app.auth.service;
 
-import com.audiostreamer.app.dto.*;
-import com.audiostreamer.app.models.Role;
-import com.audiostreamer.app.models.User;
-import com.audiostreamer.app.repositories.UserRepository;
-import com.audiostreamer.app.security.JwtUtil;
+import com.audiostreamer.app.auth.dto.AuthResponse;
+import com.audiostreamer.app.auth.dto.LoginRequest;
+import com.audiostreamer.app.auth.dto.RegisterRequest;
+import com.audiostreamer.app.auth.model.Role;
+import com.audiostreamer.app.auth.model.User;
+import com.audiostreamer.app.auth.model.UserRepository;
+import com.audiostreamer.app.auth.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.*;
 import org.springframework.security.crypto.password.PasswordEncoder;

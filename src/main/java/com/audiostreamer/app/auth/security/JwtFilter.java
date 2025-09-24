@@ -1,6 +1,6 @@
-package com.audiostreamer.app.security;
+package com.audiostreamer.app.auth.security;
 
-import com.audiostreamer.app.services.CustomUserDetailsService;
+import com.audiostreamer.app.auth.service.CustomUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,7 +30,6 @@ public class JwtFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         final String authHeader = request.getHeader("Authorization");
-
         String token = null;
         String email = null;
 
@@ -42,11 +41,9 @@ public class JwtFilter extends OncePerRequestFilter {
         if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             if (jwtUtil.isTokenValid(token)) {
                 UserDetails userDetails = userDetailsService.loadUserByUsername(email);
-
                 UsernamePasswordAuthenticationToken authToken =
                         new UsernamePasswordAuthenticationToken(
                                 userDetails, null, userDetails.getAuthorities());
-
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }

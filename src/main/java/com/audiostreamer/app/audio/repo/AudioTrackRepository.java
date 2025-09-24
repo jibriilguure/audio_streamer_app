@@ -1,6 +1,5 @@
-package com.audiostreamer.app.repositories;
+package com.audiostreamer.app.audio.repo;
 
-import com.audiostreamer.app.models.AudioTrack;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

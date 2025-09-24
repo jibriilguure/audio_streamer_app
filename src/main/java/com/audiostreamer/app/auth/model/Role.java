@@ -1,4 +1,4 @@
-package com.audiostreamer.app.models;
+package com.audiostreamer.app.auth.model;
 
 public enum Role {
     USER,

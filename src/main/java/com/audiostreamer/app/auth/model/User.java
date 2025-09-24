@@ -1,4 +1,4 @@
-package com.audiostreamer.app.models;
+package com.audiostreamer.app.auth.model;
 
 import jakarta.persistence.*;
 import lombok.*;

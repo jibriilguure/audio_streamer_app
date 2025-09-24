@@ -1,8 +1,8 @@
-package com.audiostreamer.app.controllers;
+package com.audiostreamer.app.audio.controller;
 
-import com.audiostreamer.app.models.AudioTrack;
-import com.audiostreamer.app.repositories.AudioTrackRepository;
-import com.audiostreamer.app.services.S3Service;
+import com.audiostreamer.app.audio.repo.AudioTrack;
+import com.audiostreamer.app.audio.repo.AudioTrackRepository;
+import com.audiostreamer.app.audio.S3Service;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

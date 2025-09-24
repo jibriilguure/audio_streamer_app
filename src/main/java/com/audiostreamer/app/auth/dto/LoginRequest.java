@@ -1,4 +1,4 @@
-package com.audiostreamer.app.dto;
+package com.audiostreamer.app.auth.dto;
 
 import lombok.Data;
 

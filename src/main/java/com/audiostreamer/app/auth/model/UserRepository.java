@@ -1,6 +1,5 @@
-package com.audiostreamer.app.repositories;
+package com.audiostreamer.app.auth.model;
 
-import com.audiostreamer.app.models.User;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 

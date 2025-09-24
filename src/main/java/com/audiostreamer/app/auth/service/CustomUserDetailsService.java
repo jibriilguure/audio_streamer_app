@@ -1,7 +1,7 @@
-package com.audiostreamer.app.services;
+package com.audiostreamer.app.auth.service;
 
-import com.audiostreamer.app.models.User;
-import com.audiostreamer.app.repositories.UserRepository;
+import com.audiostreamer.app.auth.model.User;
+import com.audiostreamer.app.auth.model.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
